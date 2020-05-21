@@ -359,7 +359,8 @@ if (CODECOVERAGE)
   # --coverage translates to -fprofile-arcs -ftest-coverage when
   # compiling and -lgcov when linking
   add_compile_options(--coverage -O0)
-  add_link_options(--coverage)
+  add_definitions(-coverage)
+  set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} --coverage)
 endif (CODECOVERAGE)
 
 if (UNIX)
